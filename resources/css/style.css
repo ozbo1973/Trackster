@@ -5,12 +5,15 @@ html {
   font-size: 16px;
 }
 
+*:focus {
+  outline: none;
+}
+
 /*header style*/
 header {
   background-color: rgb(35, 2, 63);
   padding: 2.75rem;
 }
-
 
 header h1 {
   font-family: "Righteous";
@@ -28,10 +31,10 @@ header input, header i{
 header input {
   color: rgb(191, 191, 191);
   margin-right: .7em;
-  border: 1px solid rgb(255, 102, 204);
 }
-
-header i {
+/*Search Button */
+#search-button {
   background-color: rgb(255, 102, 204);
   text-align: center;
+  cursor: pointer;
 }
