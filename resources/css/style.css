@@ -10,12 +10,12 @@ html {
 }
 
 /*header style*/
-header {
+.header {
   background-color: rgb(35, 2, 63);
   padding: 2.75rem;
 }
 
-header h1 {
+.header h1 {
   font-family: "Righteous";
   font-size: 2.5rem;
   color: rgb(255, 0, 171);
@@ -23,12 +23,12 @@ header h1 {
   margin-bottom: 0;
 }
 
-header input, header i{
+.header input, .header i{
   padding: .425rem;
   border-radius: 19px;
 }
 
-header input {
+.header input {
   color: rgb(191, 191, 191);
   margin-right: .7em;
 }
@@ -37,4 +37,11 @@ header input {
   background-color: rgb(255, 102, 204);
   text-align: center;
   cursor: pointer;
+}
+
+/*column headers */
+.column-headers {
+  background-color: rgb(104,0,255);
+  color: rgb(255, 255, 255);
+  padding: .5rem;
 }
