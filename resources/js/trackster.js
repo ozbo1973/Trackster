@@ -22,7 +22,7 @@ $(document).ready(function() {
 
   $('.header-attribute').click(function(event) {
     /* Act on the event */
-    var sel=$(this).text();
+    var sel=$(this).data('click');
     var searchInput = $('#search-input').val();
     Trackster.searchTracksByTitle(searchInput,sel);
   });
@@ -81,29 +81,7 @@ Trackster.searchTracksByTitle = function(title, header) {
     type: 'GET',
     dataType: 'json',
     success: function(response){
-      var list = response.tracks.items;
-      //change header based on header clicked
-      if(header !== 'none') {
-          switch (header) {
-            case 'Song':
-              header = 'name';
-              break;
-            case 'Album':
-              header = 'album';
-              break;
-            case 'Popularity':
-              header= 'popularity'
-              break;
-            case 'Length':
-              header= 'duration_ms'
-              break;
-            default:
-              header = 'none'
-              break;
-          } // ./switch
-
-          list= Trackster.sortList(list,header);
-      } // ./if
+      var list = Trackster.sortList(response.tracks.items,header);
       Trackster.renderTracks(list);
     } //./success
   })
@@ -113,7 +91,6 @@ Trackster.sortList=function(tracks,key){
   return tracks.sort(function(a,b){
     var x=a[key]; var y=b[key];
     if(key === 'album') {x=a[key]["name"]; y=b[key]["name"]};
-    console.log(y);
     return ((x < y) ? -1 : ((x > y) ? 1 : 0));
   })
 }
